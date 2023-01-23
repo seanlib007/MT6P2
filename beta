@@ -1,1 +1,46 @@
+1.
+import sympy as sp
+x,y=sp.symbols("x,y")
+y=x**2
+diffx=sp.diff(x,x)
+diffy=sp.diff(y,x)
+i1=x*diffy-y*diffx
+i=sp.integrate(i1,(x,0,1))
+print(i)
 
+2.
+import sympy as sp
+x,y=sp.symbols("x,y")
+y=x**2+1
+diffx=sp.diff(x,x)
+diffy=sp.diff(y,x)
+i1=(3*x+y)*diffx+(2*y-x)*diffy
+i=sp.integrate(i1,(x,0,3))
+print(i)
+
+3.
+import sympy as sp
+x,y,z,t=sp.symbols("x,y,z,t")
+x=sp.exp(t)
+y=sp.exp(-t)
+z=t**2
+diffx=sp.diff(x,t)
+diffy=sp.diff(y,t)
+diffz=sp.diff(z,t)
+i1=(x*y)*diffx+(z*x**2)*diffy+(x*y*z)*diffz
+i=sp.integrate(i1,(t,0,1))
+print(i)
+
+
+4.
+import sympy as sp
+x,y,t=sp.symbols("x,y,t")
+a=4
+b=3
+x=a*(sp.cos(t))
+y=b*sp.sin(t)
+diffx=sp.diff(x,t)
+diffy=sp.diff(y,t)
+i1=(x+2*y)*diffx+(4-x*2)*diffy
+i=sp.integrate(i1,(t,0,2*sp.pi))
+print(i)

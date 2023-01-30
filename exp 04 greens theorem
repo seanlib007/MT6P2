@@ -1,0 +1,24 @@
+import sympy as sp
+x,y,dx,dy=sp.symbols('x,y,dx,dy')
+p=3*x**2-8*y**2
+q=2*y*(2-3*x)
+pdy=sp.diff(p,y)
+qdx=sp.diff(q,x)
+sol=sp.integrate(qdx-pdy,(y,0,2),(x,0,1))
+rhs=sol
+print("RHS is ",rhs)
+
+i=p*dx+q*dy
+i1=sp.integrate(i.subs([(y,0),(dy,0),(x,x),(dx,1)]),(x,0,1))
+i2=sp.integrate(i.subs([(x,1),(dx,0),(y,y),(dy,1)]),(y,0,2))
+i3=sp.integrate(i.subs([(y,2),(dy,0),(x,x),(dx,1)]),(x,1,0))
+i4=sp.integrate(i.subs([(x,0),(dx,0),(y,y),(dy,1)]),(y,2,0))
+i=i1+i2+i3+i4
+lhs=i
+print("LHS is ",lhs)
+
+if lhs==rhs:
+    print("The Green's theorem is verified")
+else:
+    print("Green's theorem is not verified")
+

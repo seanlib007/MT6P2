@@ -14,7 +14,7 @@ def gauss(F,a,b,c):
     RHS = simplify(integrate((DivF[0]+DivF[1]+DivF[2]),(x,0,a),(y,0,b),(z,0,c)))
     print(f"RHS is {RHS}")
     if LHS == RHS:
-        print("Gauss Divergence Thm is verified")
+        print("Gauss Divergence Theorem is verified")
     else:
         print("Please don't break the universe")
         
